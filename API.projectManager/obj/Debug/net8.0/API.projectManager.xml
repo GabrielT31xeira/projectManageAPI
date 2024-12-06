@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API.projectManager</name>
+    </assembly>
+    <members>
+        <member name="M:API.projectManager.Controllers.ArquivoController.AddArquivoToTarefa(System.Int32,API.projectManager.Model.ArquivoCreateModel)">
+            <summary>
+            Adiciona um arquivo a uma tarefa.
+            </summary>
+            <param name="tarefaId">ID da tarefa.</param>
+            <param name="arquivoModel">Dados do arquivo.</param>
+            <returns>Resposta indicando o resultado da operação.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.ArquivoController.GetTarefasComArquivos">
+            <summary>
+            Obtém todas as tarefas com seus arquivos associados.
+            </summary>
+            <returns>Uma lista de tarefas com arquivos.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.ArquivoController.GetArquivosDeTarefa(System.Int32)">
+            <summary>
+            Obtém os arquivos de uma tarefa específica.
+            </summary>
+            <param name="tarefaId">ID da tarefa.</param>
+            <returns>Uma lista de arquivos da tarefa.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.ArquivoController.DeleteArquivo(System.Int32)">
+            <summary>
+            Exclui um arquivo pelo ID.
+            </summary>
+            <param name="arquivoId">ID do arquivo a ser excluído.</param>
+            <returns>Resposta HTTP indicando o resultado da operação.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.AuthController.Register(API.projectManager.Model.RegisterModel)">
+            <summary>
+            Registra um novo usuário.
+            </summary>
+            <param name="model">Dados do usuário para registro.</param>
+            <returns>Resultado da operação de registro.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.AuthController.ConfirmEmail(System.String)">
+            <summary>
+            Confirma o e-mail do usuário.
+            </summary>
+            <param name="token">Token de confirmação.</param>
+            <returns>Resultado da operação de confirmação.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.AuthController.Login(API.projectManager.Model.LoginModel)">
+            <summary>
+            Realiza o login do usuário.
+            </summary>
+            <param name="model">Dados do usuário para login.</param>
+            <returns>Token JWT se o login for bem-sucedido.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.ComentarioController.AddComentarioToTarefa(System.Int32,API.projectManager.Model.ComentarioCreateModel)">
+            <summary>
+            Adiciona um comentário a uma tarefa.
+            </summary>
+            <param name="tarefaId">ID da tarefa.</param>
+            <param name="comentarioModel">Dados do comentário.</param>
+            <returns>Resposta indicando o resultado da operação.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.ComentarioController.RemoveComentarioFromTarefa(System.Int32)">
+            <summary>
+            Remove um comentário de uma tarefa.
+            </summary>
+            <param name="comentarioId">ID do comentário.</param>
+            <returns>Resposta indicando o resultado da operação.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.ComentarioController.GetComentariosDeTarefa(System.Int32)">
+            <summary>
+            Obtém todos os comentários de uma tarefa específica.
+            </summary>
+            <param name="tarefaId">ID da tarefa.</param>
+            <returns>Uma lista de comentários da tarefa.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.EquipesController.EntrarNaEquipe(System.Int32)">
+            <summary>
+            Adiciona o usuário autenticado à equipe especificada.
+            </summary>
+            <param name="id">ID da equipe.</param>
+            <returns>Resposta indicando o resultado da operação.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.EquipesController.SairDaEquipe(System.Int32)">
+            <summary>
+            Remove o usuário autenticado da equipe especificada.
+            </summary>
+            <param name="id">ID da equipe.</param>
+            <returns>Resposta indicando o resultado da operação.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.EquipesController.Index">
+            <summary>
+            Obtém a lista de todas as equipes, separando as equipes do usuário autenticado das outras equipes.
+            </summary>
+            <returns>Uma lista de equipes.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.EquipesController.Details(System.Int32)">
+            <summary>
+            Obtém os detalhes de uma equipe específica pelo ID.
+            </summary>
+            <param name="id">ID da equipe.</param>
+            <returns>Os detalhes da equipe.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.EquipesController.Create(API.projectManager.Model.EquipeCreateModel)">
+            <summary>
+            Cria uma nova equipe.
+            </summary>
+            <param name="model">Dados da nova equipe.</param>
+            <returns>A equipe criada.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.EquipesController.Edit(System.Int32,API.projectManager.Model.EquipeCreateModel)">
+            <summary>
+            Atualiza os dados de uma equipe específica.
+            </summary>
+            <param name="id">ID da equipe.</param>
+            <param name="equipe">Dados atualizados da equipe.</param>
+            <returns>A equipe atualizada.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.EquipesController.Delete(System.Int32)">
+            <summary>
+            Exclui uma equipe específica.
+            </summary>
+            <param name="id">ID da equipe.</param>
+            <returns>Resposta indicando o resultado da operação.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.EquipesController.RemoverUsuario(System.Int32,System.Int32)">
+            <summary>
+            Remove um usuário específico de uma equipe.
+            </summary>
+            <param name="equipeId">ID da equipe.</param>
+            <param name="usuarioId">ID do usuário.</param>
+            <returns>Resposta indicando o resultado da operação.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.ProjetoController.GetProjetos">
+            <summary>
+            Obtém a lista de todos os projetos.
+            </summary>
+            <returns>Uma lista de projetos.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.ProjetoController.GetProjeto(System.Int32)">
+            <summary>
+            Obtém um projeto específico pelo ID.
+            </summary>
+            <param name="id">ID do projeto.</param>
+            <returns>O projeto correspondente ao ID.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.ProjetoController.PostProjeto(API.projectManager.Model.ProjetoCreateModel)">
+            <summary>
+            Cria um novo projeto.
+            </summary>
+            <param name="model">Dados do novo projeto.</param>
+            <returns>O projeto criado.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.ProjetoController.PutProjeto(System.Int32,API.projectManager.Model.ProjetoCreateModel)">
+            <summary>
+            Atualiza um projeto existente.
+            </summary>
+            <param name="id">ID do projeto a ser atualizado.</param>
+            <param name="projeto">Dados atualizados do projeto. Lembre-se de mandar o id no body </param>
+            <returns>Resposta HTTP indicando o resultado da operação.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.ProjetoController.DeleteProjeto(System.Int32)">
+            <summary>
+            Exclui um projeto pelo ID.
+            </summary>
+            <param name="id">ID do projeto a ser excluído.</param>
+            <returns>Resposta HTTP indicando o resultado da operação.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.TarefasController.GetTarefas(System.Int32)">
+            <summary>
+            Obtém a lista de todas as tarefas de um projeto específico.
+            </summary>
+            <param name="projetoId">ID do projeto.</param>
+            <returns>Uma lista de tarefas.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.TarefasController.GetTarefa(System.Int32)">
+            <summary>
+            Obtém uma tarefa específica pelo ID.
+            </summary>
+            <param name="id">ID da tarefa.</param>
+            <returns>A tarefa correspondente ao ID.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.TarefasController.PostTarefa(System.Int32,API.projectManager.Model.TarefaCreateModel)">
+            <summary>
+            Cria uma nova tarefa para um projeto específico.
+            </summary>
+            <param name="projetoId">ID do projeto.</param>
+            <param name="model">Dados da nova tarefa.</param>
+            <returns>A tarefa criada.</returns>
+        </member>
+        <member name="M:API.projectManager.Controllers.TarefasController.DeleteTarefa(System.Int32)">
+            <summary>
+            Exclui uma tarefa pelo ID.
+            </summary>
+            <param name="id">ID da tarefa a ser excluída.</param>
+            <returns>Resposta HTTP indicando o resultado da operação.</returns>
+        </member>
+        <member name="T:API.projectManager.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:API.projectManager.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:API.projectManager.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:API.projectManager.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

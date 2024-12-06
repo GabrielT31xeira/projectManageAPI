@@ -1,0 +1,1586 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Gerenciador de Projetos",
+    "description": "API de Eventos de Gabriel Teixeira Alunos de Tópicos 3 da UNITINS",
+    "contact": {
+      "name": "Gabriel Teixeira",
+      "url": "https://www.unitins.br/nPortal/",
+      "email": "gabrielteixeira@unitins.br"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Arquivo/{tarefaId}/tarefa": {
+      "post": {
+        "tags": [
+          "Arquivo"
+        ],
+        "summary": "Adiciona um arquivo a uma tarefa.",
+        "parameters": [
+          {
+            "name": "tarefaId",
+            "in": "path",
+            "description": "ID da tarefa.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Dados do arquivo.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArquivoCreateModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArquivoCreateModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArquivoCreateModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Arquivo"
+        ],
+        "summary": "Obtém os arquivos de uma tarefa específica.",
+        "parameters": [
+          {
+            "name": "tarefaId",
+            "in": "path",
+            "description": "ID da tarefa.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Arquivo"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Arquivo"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Arquivo"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Arquivo": {
+      "get": {
+        "tags": [
+          "Arquivo"
+        ],
+        "summary": "Obtém todas as tarefas com seus arquivos associados.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tarefa"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tarefa"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tarefa"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Arquivo/{arquivoId}": {
+      "delete": {
+        "tags": [
+          "Arquivo"
+        ],
+        "summary": "Exclui um arquivo pelo ID.",
+        "parameters": [
+          {
+            "name": "arquivoId",
+            "in": "path",
+            "description": "ID do arquivo a ser excluído.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Registra um novo usuário.",
+        "requestBody": {
+          "description": "Dados do usuário para registro.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth/confirmemail": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Confirma o e-mail do usuário.",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Token de confirmação.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Realiza o login do usuário.",
+        "requestBody": {
+          "description": "Dados do usuário para login.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Comentario/{tarefaId}": {
+      "post": {
+        "tags": [
+          "Comentario"
+        ],
+        "summary": "Adiciona um comentário a uma tarefa.",
+        "parameters": [
+          {
+            "name": "tarefaId",
+            "in": "path",
+            "description": "ID da tarefa.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Dados do comentário.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ComentarioCreateModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ComentarioCreateModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ComentarioCreateModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Comentario/{comentarioId}": {
+      "delete": {
+        "tags": [
+          "Comentario"
+        ],
+        "summary": "Remove um comentário de uma tarefa.",
+        "parameters": [
+          {
+            "name": "comentarioId",
+            "in": "path",
+            "description": "ID do comentário.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Comentario/{tarefaId}/comentarios": {
+      "get": {
+        "tags": [
+          "Comentario"
+        ],
+        "summary": "Obtém todos os comentários de uma tarefa específica.",
+        "parameters": [
+          {
+            "name": "tarefaId",
+            "in": "path",
+            "description": "ID da tarefa.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Comentario"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Comentario"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Comentario"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Equipes/EntrarNaEquipe": {
+      "post": {
+        "tags": [
+          "Equipes"
+        ],
+        "summary": "Adiciona o usuário autenticado à equipe especificada.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ID da equipe.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Equipes/SairDaEquipe": {
+      "post": {
+        "tags": [
+          "Equipes"
+        ],
+        "summary": "Remove o usuário autenticado da equipe especificada.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ID da equipe.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Equipes": {
+      "get": {
+        "tags": [
+          "Equipes"
+        ],
+        "summary": "Obtém a lista de todas as equipes, separando as equipes do usuário autenticado das outras equipes.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipeViewModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipeViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipeViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Equipes/{id}": {
+      "get": {
+        "tags": [
+          "Equipes"
+        ],
+        "summary": "Obtém os detalhes de uma equipe específica pelo ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da equipe.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Equipe"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Equipe"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Equipe"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Equipes/Create": {
+      "post": {
+        "tags": [
+          "Equipes"
+        ],
+        "summary": "Cria uma nova equipe.",
+        "requestBody": {
+          "description": "Dados da nova equipe.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipeCreateModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipeCreateModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipeCreateModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Equipe"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Equipe"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Equipe"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Equipes/Edit/{id}": {
+      "put": {
+        "tags": [
+          "Equipes"
+        ],
+        "summary": "Atualiza os dados de uma equipe específica.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da equipe.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Dados atualizados da equipe.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipeCreateModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipeCreateModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipeCreateModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Equipes/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "Equipes"
+        ],
+        "summary": "Exclui uma equipe específica.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da equipe.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Equipes/RemoverUsuario": {
+      "post": {
+        "tags": [
+          "Equipes"
+        ],
+        "summary": "Remove um usuário específico de uma equipe.",
+        "parameters": [
+          {
+            "name": "equipeId",
+            "in": "query",
+            "description": "ID da equipe.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "usuarioId",
+            "in": "query",
+            "description": "ID do usuário.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Projeto": {
+      "get": {
+        "tags": [
+          "Projeto"
+        ],
+        "summary": "Obtém a lista de todos os projetos.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Projeto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Projeto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Projeto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Projeto"
+        ],
+        "summary": "Cria um novo projeto.",
+        "requestBody": {
+          "description": "Dados do novo projeto.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjetoCreateModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjetoCreateModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjetoCreateModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Projeto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Projeto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Projeto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Projeto/{id}": {
+      "get": {
+        "tags": [
+          "Projeto"
+        ],
+        "summary": "Obtém um projeto específico pelo ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do projeto.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Projeto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Projeto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Projeto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Projeto"
+        ],
+        "summary": "Atualiza um projeto existente.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do projeto a ser atualizado.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Dados atualizados do projeto. Lembre-se de mandar o id no body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjetoCreateModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjetoCreateModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjetoCreateModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Projeto"
+        ],
+        "summary": "Exclui um projeto pelo ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do projeto a ser excluído.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Tarefas": {
+      "get": {
+        "tags": [
+          "Tarefas"
+        ],
+        "summary": "Obtém a lista de todas as tarefas de um projeto específico.",
+        "parameters": [
+          {
+            "name": "projetoId",
+            "in": "query",
+            "description": "ID do projeto.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tarefa"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tarefa"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tarefa"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tarefas/{id}": {
+      "get": {
+        "tags": [
+          "Tarefas"
+        ],
+        "summary": "Obtém uma tarefa específica pelo ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da tarefa.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tarefa"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tarefa"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tarefa"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tarefas"
+        ],
+        "summary": "Exclui uma tarefa pelo ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da tarefa a ser excluída.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Tarefas/{projetoId}": {
+      "post": {
+        "tags": [
+          "Tarefas"
+        ],
+        "summary": "Cria uma nova tarefa para um projeto específico.",
+        "parameters": [
+          {
+            "name": "projetoId",
+            "in": "path",
+            "description": "ID do projeto.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Dados da nova tarefa.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TarefaCreateModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TarefaCreateModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TarefaCreateModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tarefa"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tarefa"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tarefa"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "operationId": "GetWeatherForecast",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Arquivo": {
+        "required": [
+          "caminho",
+          "nome"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "caminho": {
+            "type": "string"
+          },
+          "tarefas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tarefa"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ArquivoCreateModel": {
+        "required": [
+          "caminho",
+          "nome"
+        ],
+        "type": "object",
+        "properties": {
+          "nome": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "caminho": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Comentario": {
+        "required": [
+          "data",
+          "texto"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "texto": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string"
+          },
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tarefaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tarefa": {
+            "$ref": "#/components/schemas/Tarefa"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComentarioCreateModel": {
+        "required": [
+          "data",
+          "texto"
+        ],
+        "type": "object",
+        "properties": {
+          "texto": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string"
+          },
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DateOnly": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "month": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "day": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dayOfWeek": {
+            "$ref": "#/components/schemas/DayOfWeek"
+          },
+          "dayOfYear": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "dayNumber": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DayOfWeek": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Equipe": {
+        "required": [
+          "nome"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "usuarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Usuario"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EquipeCreateModel": {
+        "required": [
+          "nome"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EquipeViewModel": {
+        "type": "object",
+        "properties": {
+          "minhasEquipes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Equipe"
+            },
+            "nullable": true
+          },
+          "outrasEquipes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Equipe"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginModel": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Projeto": {
+        "required": [
+          "dataFim",
+          "dataInicio",
+          "descricao",
+          "nome"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "descricao": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string"
+          },
+          "dataInicio": {
+            "type": "string",
+            "format": "date"
+          },
+          "dataFim": {
+            "type": "string",
+            "format": "date"
+          },
+          "tarefas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tarefa"
+            },
+            "nullable": true
+          },
+          "donoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dono": {
+            "$ref": "#/components/schemas/Usuario"
+          },
+          "usuarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Usuario"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProjetoCreateModel": {
+        "required": [
+          "dataFim",
+          "dataInicio",
+          "descricao",
+          "nome"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "descricao": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string"
+          },
+          "dataInicio": {
+            "type": "string",
+            "format": "date"
+          },
+          "dataFim": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterModel": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "profile": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tarefa": {
+        "required": [
+          "dataFim",
+          "dataInicio",
+          "nome",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "descricao": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "dataInicio": {
+            "type": "string",
+            "format": "date"
+          },
+          "dataFim": {
+            "type": "string",
+            "format": "date"
+          },
+          "status": {
+            "type": "string"
+          },
+          "comentarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comentario"
+            },
+            "nullable": true
+          },
+          "arquivos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Arquivo"
+            },
+            "nullable": true
+          },
+          "projetoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "projeto": {
+            "$ref": "#/components/schemas/Projeto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TarefaCreateModel": {
+        "required": [
+          "dataFim",
+          "dataInicio",
+          "nome",
+          "projetoId",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "descricao": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "dataInicio": {
+            "type": "string",
+            "format": "date"
+          },
+          "dataFim": {
+            "type": "string",
+            "format": "date"
+          },
+          "status": {
+            "type": "string"
+          },
+          "projetoId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Usuario": {
+        "required": [
+          "email",
+          "nome",
+          "profile",
+          "senha"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "senha": {
+            "type": "string"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "profile": {
+            "type": "string"
+          },
+          "confirmationToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "isEmailConfirmed": {
+            "type": "boolean"
+          },
+          "projetos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Projeto"
+            },
+            "nullable": true
+          },
+          "equipes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Equipe"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WeatherForecast": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "$ref": "#/components/schemas/DateOnly"
+          },
+          "temperatureC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "temperatureF": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Insira o token.",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
