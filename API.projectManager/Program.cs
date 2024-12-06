@@ -21,7 +21,7 @@ builder.Services.AddSwaggerGen(c =>
     {
         Title = "Gerenciador de Projetos",
         Version = "v1",
-        Description = "API de Eventos de Gabriel Teixeira Alunos de Tópicos 3 da UNITINS",
+        Description = "API de Eventos de Gabriel Teixeira Alunos de Tópicos 3 da UNITINS, NÃO FORAM PRE DEFINIDOS TIPO DE USUARIO PARA MANTER O FRONTEND LIVRE PAR USO E VALIDAÇÃO DO MESMO!",
         Contact = new OpenApiContact
         {
             Name = "Gabriel Teixeira",

@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\gt3ix\\source\\repos\\API.projectManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4DA6C53-1F79-4964-9973-3C91A14FA041}|API.projectManager\\API.projectManager.csproj|c:\\users\\gt3ix\\source\\repos\\api.projectmanager\\api.projectmanager\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4DA6C53-1F79-4964-9973-3C91A14FA041}|API.projectManager\\API.projectManager.csproj|solutionrelative:api.projectmanager\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4DA6C53-1F79-4964-9973-3C91A14FA041}|API.projectManager\\API.projectManager.csproj|c:\\users\\gt3ix\\source\\repos\\api.projectmanager\\api.projectmanager\\controllers\\tarefascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4DA6C53-1F79-4964-9973-3C91A14FA041}|API.projectManager\\API.projectManager.csproj|solutionrelative:api.projectmanager\\controllers\\tarefascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\gt3ix\\source\\repos\\API.projectManager\\API.projectManager\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "API.projectManager\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\gt3ix\\source\\repos\\API.projectManager\\API.projectManager\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "API.projectManager\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAnwIsAAAApAAAAAAAAAA==",
+              "Title": "TarefasController.cs",
+              "DocumentMoniker": "C:\\Users\\gt3ix\\source\\repos\\API.projectManager\\API.projectManager\\Controllers\\TarefasController.cs",
+              "RelativeDocumentMoniker": "API.projectManager\\Controllers\\TarefasController.cs",
+              "ToolTip": "C:\\Users\\gt3ix\\source\\repos\\API.projectManager\\API.projectManager\\Controllers\\TarefasController.cs",
+              "RelativeToolTip": "API.projectManager\\Controllers\\TarefasController.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAIwBAAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T03:51:19.915Z",
+              "WhenOpened": "2024-12-06T04:23:48.512Z",
               "EditorCaption": ""
             }
           ]

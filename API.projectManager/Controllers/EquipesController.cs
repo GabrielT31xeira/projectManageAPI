@@ -188,7 +188,7 @@ namespace API.projectManager.Controllers
         }
 
         /// <summary>
-        /// Atualiza os dados de uma equipe específica.
+        /// Atualiza os dados de uma equipe específica. (MANDAR ID NO BODY DA REQUISIÇÃO TAMBEM)
         /// </summary>
         /// <param name="id">ID da equipe.</param>
         /// <param name="equipe">Dados atualizados da equipe.</param>

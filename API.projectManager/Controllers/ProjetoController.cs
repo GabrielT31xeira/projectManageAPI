@@ -107,7 +107,7 @@ namespace API.projectManager.Controllers
         /// Atualiza um projeto existente.
         /// </summary>
         /// <param name="id">ID do projeto a ser atualizado.</param>
-        /// <param name="projeto">Dados atualizados do projeto. Lembre-se de mandar o id no body </param>
+        /// <param name="projeto">Dados atualizados do projeto. Lembre-se de mandar o id no body TAMBEM </param>
         /// <returns>Resposta HTTP indicando o resultado da operação.</returns>
         // PUT: api/Projetos/5
         [HttpPut("{id}")]
