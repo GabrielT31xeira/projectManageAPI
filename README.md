@@ -1,13 +1,13 @@
 # Projeto de Gerenciamento de Tarefas e Equipes
 
-Este projeto � uma API para gerenciar tarefas, equipes, projetos e usu�rios. A API fornece endpoints para criar, atualizar, excluir e listar itens, al�m de gerenciar arquivos e coment�rios associados �s tarefas.
+Este projeto é uma API para gerenciar tarefas, equipes, projetos e usuários. A API fornece endpoints para criar, atualizar, excluir e listar itens, além de gerenciar arquivos e comentários associados ás tarefas.
 
 ## Funcionalidades Principais
-- Gerenciamento de tarefas, projetos, equipes e usu�rios.
+- Gerenciamento de tarefas, projetos, equipes e usuários.
 - Controle de arquivos associados a tarefas.
-- Sistema de coment�rios em tarefas.
-- Autentica��o e registro de usu�rios.
-- Controle de participa��o em equipes.
+- Sistema de comentários em tarefas.
+- Autenticação e registro de usuários.
+- Controle de participação em equipes.
 
 ---
 
@@ -16,19 +16,19 @@ Este projeto � uma API para gerenciar tarefas, equipes, projetos e usu�rios.
 ### **Arquivo**
 - **Adicionar Arquivo a uma Tarefa**  
   `POST /api/Arquivo/{tarefaId}/tarefa`  
-  - **Par�metros**: `tarefaId` (ID da tarefa)  
+  - **Parâmetros**: `tarefaId` (ID da tarefa)  
   - **Body**: `ArquivoCreateModel`  
 
 - **Obter Arquivos de uma Tarefa**  
   `GET /api/Arquivo/{tarefaId}/tarefa`  
-  - **Par�metros**: `tarefaId` (ID da tarefa)  
+  - **Parâmetros**: `tarefaId` (ID da tarefa)  
 
 - **Listar Todas as Tarefas com Arquivos Associados**  
   `GET /api/Arquivo`  
 
 - **Excluir Arquivo pelo ID**  
   `DELETE /api/Arquivo/{arquivoId}`  
-  - **Par�metros**: `arquivoId` (ID do arquivo)  
+  - **Parâmetros**: `arquivoId` (ID do arquivo)  
 
 ---
 
@@ -39,7 +39,7 @@ Este projeto � uma API para gerenciar tarefas, equipes, projetos e usu�rios.
 
 - **Confirmar E-mail**  
   `GET /api/Auth/confirmemail`  
-  - **Par�metros**: `userId`, `token`  
+  - **Parâmetros**: `userId`, `token`  
 
 - **Login de Usu�rio**  
   `POST /api/Auth/login`  
@@ -50,16 +50,16 @@ Este projeto � uma API para gerenciar tarefas, equipes, projetos e usu�rios.
 ### **Coment�rios**
 - **Adicionar Coment�rio a uma Tarefa**  
   `POST /api/Comentario/{tarefaId}`  
-  - **Par�metros**: `tarefaId`  
+  - **Parâmetros**: `tarefaId`  
   - **Body**: `ComentarioCreateModel`  
 
 - **Remover Coment�rio**  
   `DELETE /api/Comentario/{comentarioId}`  
-  - **Par�metros**: `comentarioId`  
+  - **Parâmetros**: `comentarioId`  
 
 - **Listar Coment�rios de uma Tarefa**  
   `GET /api/Comentario/{tarefaId}/comentarios`  
-  - **Par�metros**: `tarefaId`  
+  - **Parâmetros**: `tarefaId`  
 
 ---
 
@@ -77,7 +77,7 @@ Este projeto � uma API para gerenciar tarefas, equipes, projetos e usu�rios.
 
 - **Obter Detalhes de uma Equipe**  
   `GET /api/Equipes/{id}`  
-  - **Par�metros**: `id`  
+  - **Parâmetros**: `id`  
 
 - **Criar Equipe**  
   `POST /api/Equipes/Create`  
@@ -85,12 +85,12 @@ Este projeto � uma API para gerenciar tarefas, equipes, projetos e usu�rios.
 
 - **Editar Equipe**  
   `PUT /api/Equipes/Edit/{id}`  
-  - **Par�metros**: `id`  
+  - **Parâmetros**: `id`  
   - **Body**: `EquipeEditModel`  
 
 - **Excluir Equipe**  
   `DELETE /api/Equipes/Delete/{id}`  
-  - **Par�metros**: `id`  
+  - **Parâmetros**: `id`  
 
 - **Remover Usu�rio de uma Equipe**  
   `POST /api/Equipes/RemoverUsuario`  
@@ -108,35 +108,35 @@ Este projeto � uma API para gerenciar tarefas, equipes, projetos e usu�rios.
 
 - **Obter Projeto por ID**  
   `GET /api/Projeto/{id}`  
-  - **Par�metros**: `id`  
+  - **Parâmetros**: `id`  
 
 - **Editar Projeto**  
   `PUT /api/Projeto/{id}`  
-  - **Par�metros**: `id`  
+  - **Parâmetros**: `id`  
   - **Body**: `ProjetoEditModel`  
 
 - **Excluir Projeto**  
   `DELETE /api/Projeto/{id}`  
-  - **Par�metros**: `id`  
+  - **Parâmetros**: `id`  
 
 ---
 
 ### **Tarefas**
 - **Listar Tarefas de um Projeto**  
   `GET /api/Tarefas`  
-  - **Par�metros**: `projetoId`  
+  - **Parâmetros**: `projetoId`  
 
 - **Obter Tarefa por ID**  
   `GET /api/Tarefas/{id}`  
-  - **Par�metros**: `id`  
+  - **Parâmetros**: `id`  
 
 - **Excluir Tarefa**  
   `DELETE /api/Tarefas/{id}`  
-  - **Par�metros**: `id`  
+  - **Parâmetros**: `id`  
 
 - **Criar Nova Tarefa para um Projeto**  
   `POST /api/Tarefas/{projetoId}`  
-  - **Par�metros**: `projetoId`  
+  - **Parâmetros**: `projetoId`  
   - **Body**: `TarefaCreateModel`  
 
 ---
@@ -144,20 +144,20 @@ Este projeto � uma API para gerenciar tarefas, equipes, projetos e usu�rios.
 ## Tecnologias Utilizadas
 - **Backend**: ASP.NET Core  
 - **Banco de Dados**: SQL Server  
-- **Autentica��o**: Identity  
+- **Autenticação**: Identity  
 - **Gerenciamento de Dados**: Entity Framework Core  
 
 ---
 
 ## Como Executar o Projeto
-1. Clone este reposit�rio.  
-2. Configure as vari�veis de ambiente e banco de dados no arquivo `appsettings.json` e rode `Update-Database`.  
+1. Clone este repositório.  
+2. Configure as variáveis de ambiente e banco de dados no arquivo `appsettings.json` e rode `Update-Database`.  
 3. Execute o comando `dotnet run` para iniciar o servidor.  
 4. Utilize ferramentas como Postman ou Swagger para testar os endpoints. (swagger: http://localhost:5110/index.html)  
-5. No arquivo \API.projectManager\Controllers\AuthController.cs substituir os dados do mailTrap na fun��o "SendConfirmationEmail" 
+5. No arquivo \API.projectManager\Controllers\AuthController.cs substituir os dados do mailTrap na função "SendConfirmationEmail" 
 - ![UML](mailtrap.jpg)
 - ![UML](uml.png)
 ---
 
-## Licen�a
-Este projeto est� licenciado sob a [MIT License](LICENSE).
+## Licença
+Este projeto está licenciado sob a [MIT License](LICENSE).
