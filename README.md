@@ -157,6 +157,69 @@ Este projeto é uma API para gerenciar tarefas, equipes, projetos e usuários. A
 5. No arquivo \API.projectManager\Controllers\AuthController.cs substituir os dados do mailTrap na função "SendConfirmationEmail" 
 - ![UML](mailtrap.jpg)
 - ![UML](uml.png)
+
+### **Entidades**
+- **Projeto**  
+  - **Atributos**:
+    - `Id`: int  
+    - `Nome`: string  
+    - `Descricao`: string  
+    - `DataInicio`: Date  
+    - `DataFim`: Date  
+  - **Relacionamentos**:
+    - Um projeto pode conter várias tarefas (`1..*`).  
+    - É criado por um único usuário (`1`).  
+    - Pode envolver vários usuários (`0..*`).  
+
+- **Tarefa**  
+  - **Atributos**:
+    - `Id`: int  
+    - `Nome`: string  
+    - `Descricao`: string  
+    - `DataInicio`: Date  
+    - `DataFim`: Date  
+    - `Status`: string  
+    - `ProjetoId`: int  
+  - **Relacionamentos**:
+    - Cada tarefa pertence a um projeto (`1`).  
+    - Pode conter vários comentários (`0..*`).  
+    - Pode estar associada a vários arquivos (`0..*`).  
+
+- **Usuário**  
+  - **Atributos**:
+    - `Id`: int  
+    - `Nome`: string  
+    - `Email`: string  
+    - `Senha`: string  
+    - `Perfil`: string  
+  - **Relacionamentos**:
+    - Um usuário pode criar vários projetos (`1..*`).  
+    - Pode estar envolvido em vários projetos (`0..*`).  
+    - Pode participar de várias equipes (`0..*`).  
+
+- **Equipe**  
+  - **Atributos**:
+    - `Id`: int  
+    - `Nome`: string  
+  - **Relacionamentos**:
+    - Uma equipe pode incluir vários usuários (`0..*`).  
+
+- **Arquivo**  
+  - **Atributos**:
+    - `Id`: int  
+    - `Nome`: string  
+    - `Caminho`: string  
+  - **Relacionamentos**:
+    - Um arquivo pode estar associado a várias tarefas (`0..*`).  
+
+- **Comentário**  
+  - **Atributos**:
+    - `Id`: int  
+    - `Texto`: string  
+    - `Data`: Date  
+    - `TarefaId`: int  
+  - **Relacionamentos**:
+    - Cada comentário pertence a uma tarefa (`1`).  
 ---
 
 ## Licença
