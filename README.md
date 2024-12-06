@@ -32,8 +32,8 @@ Este projeto é uma API para gerenciar tarefas, equipes, projetos e usuários. A
 
 ---
 
-### **Autentica��o**
-- **Registrar Usu�rio**  
+### **Autenticação**
+- **Registrar Usuário**  
   `POST /api/Auth/register`  
   - **Body**: `RegisterModel`  
 
@@ -41,23 +41,23 @@ Este projeto é uma API para gerenciar tarefas, equipes, projetos e usuários. A
   `GET /api/Auth/confirmemail`  
   - **Parâmetros**: `userId`, `token`  
 
-- **Login de Usu�rio**  
+- **Login de Usuário**  
   `POST /api/Auth/login`  
   - **Body**: `LoginModel`  
 
 ---
 
-### **Coment�rios**
-- **Adicionar Coment�rio a uma Tarefa**  
+### **Comentários**
+- **Adicionar Comentário a uma Tarefa**  
   `POST /api/Comentario/{tarefaId}`  
   - **Parâmetros**: `tarefaId`  
   - **Body**: `ComentarioCreateModel`  
 
-- **Remover Coment�rio**  
+- **Remover Comentário**  
   `DELETE /api/Comentario/{comentarioId}`  
   - **Parâmetros**: `comentarioId`  
 
-- **Listar Coment�rios de uma Tarefa**  
+- **Listar Comentários de uma Tarefa**  
   `GET /api/Comentario/{tarefaId}/comentarios`  
   - **Parâmetros**: `tarefaId`  
 
@@ -92,7 +92,7 @@ Este projeto é uma API para gerenciar tarefas, equipes, projetos e usuários. A
   `DELETE /api/Equipes/Delete/{id}`  
   - **Parâmetros**: `id`  
 
-- **Remover Usu�rio de uma Equipe**  
+- **Remover Usuário de uma Equipe**  
   `POST /api/Equipes/RemoverUsuario`  
   - **Body**: `RemoverUsuarioModel`  
 
